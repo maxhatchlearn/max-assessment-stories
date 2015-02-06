@@ -52,7 +52,9 @@ Then we have modules like "Introduction To Ruby Objects", "Introduction to Strin
       string :name
 
 
-"Introduction to Objects", "More Objects and Methods" are each names of Assessments in 
+"Introduction to Objects", "More Objects and Methods" are each names of Assessments in the "Introduction To Ruby Objects" module.
+
+That was straight forward now it gets kind of tricky.
 
 
 
