@@ -134,7 +134,9 @@ This will most likely be accomplished with the following Schema
 
 
 
+- Versioning brainstorm:  could do brute force versioning of the module to a local repo? that would be a lot of repos, makes more sense to just have the whole path be a repo that when things change.  
 
+  - Thats good in someways, just leave versioning to local gits
 
 
 
