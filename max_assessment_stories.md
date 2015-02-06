@@ -27,7 +27,9 @@ Ruby Monk style assessments/problems will need to have markdown that preceeds an
 
 Following the Ruby Monk model we have a Section called "Introduction To Ruby Objects" that consists of 3 pages 
 
-[check it out for yourself](https://rubymonk.com/learning/books/1-ruby-primer)
+[check it out for yourself (might have to login)](https://rubymonk.com/learning/books/1-ruby-primer)
+
+![](ruby_monk02.png)
 
 I am feeling that 
 
