@@ -5,7 +5,7 @@ Max’s Super Cool Assessment Stories Write Up
 
 ### Preface
 
-My understanding between the discussions between myself and Korei is that there will be a central rails app, in that app will be an assessment module that will hold as much of the code as possible to run our super cool customized assessment (not generate the assessments that will be builder).  90% of the App will be an ember app running on top that will handle the builder, cohort administration, marketplace (although there were talks of that being a separate drupal app).  There is no debate of the power of ember to run all that functionality.  The one rails database will hold everything (not considering optimization).
+My understanding between the discussions between myself and Korei is that there will be a central rails app, in that app will be an assessment module that will hold as much of the code as possible to run our super cool customized assessment (not generate the assessments that will be builder).  90% of the App will be an ember app (possibly backbone or angular Ive defered out of that discussion) running on top that will handle the builder, cohort administration, marketplace (although there were talks of that being a separate drupal app).  There is no debate of the power of ember to run all that functionality.  The one rails database will hold everything (not considering optimization).
 
 The assessments will seemlessly integrate into the app, although the user will have no idea that then have actually been taken to a pure rails or possibly backbone.js route when viewing the super cool assessments  (we will even do research into doing this is emberjs as well).  The reason rails is a prefered way to do the super cool assessments is because there is a lot of hacky techniques needed to get these assessments to happen. 
 
@@ -45,7 +45,7 @@ I am feeling that the Path is named Ruby Primer, with a list of authors, and a d
       integer :learning_path_id
       integer :index
 
-Then we have modules like "Introduction To Ruby Objects", "Introduction to Strings", that only have names.  (Note: in my versioning schema, modules must be connected to paths by a join table because the same version of module might belong to many versions of a path)
+Then we have modules like "Introduction To Ruby Objects", "Introduction to Strings", that only have names.  (Note: in my versioning schema, modules must be connected to paths by a join table because the same version of module might belong to many versions of a path, but to get these super cool assessments working, we really might just want to brute force version things using local git repos in hatchdown/json format)
 
     LearningPathLearningModules
       integer :learning_path_id
@@ -56,27 +56,42 @@ Then we have modules like "Introduction To Ruby Objects", "Introduction to Strin
       integer :library_id
       string :name
 
+    LearningModuleAssets
+      integer :learning_module_id
+      references :asset, polymorphic: true
+      integer :index
+
 
 "Introduction to Objects", "More Objects and Methods" are each names of Assessments in the "Introduction To Ruby Objects" module.
 
     Assessment
-      integer: library_id
-      string: name
+      integer :library_id
+      string :name
 
 
-That was straight forward now it gets kind of tricky.  It seems that the assessment will have to be grouped into sections.
+That was straight forward; now it gets kind of tricky.  It seems that the assessment parts will have to be grouped into sections.  (Note generally I dont give my join tables library_ids)
 
+    Sections
+      integer :assessment_id
+      integer :index
 
-
-
+    SectionAssets
+      integer :section_id
+      references :section_asset, polymorphic: true
+      integer :index
 
     Marks
       integer :library_id
       string :name
       text :src
 
-    Challenge
+    Challenges
       integer :library_id
+      string :language
+      boolean :example                **if false then start != solution
+      text :
+      test :solution
+      text :spec
 
 
 
@@ -111,7 +126,7 @@ This will most likely be accomplished with the following Schema
 
 
 
-
+- Need to figure 
 
 - possibility: edx style write your own javascript to make a problem
 
