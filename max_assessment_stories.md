@@ -17,7 +17,7 @@ The super cool assessments can either be built on nest or be a separate rails ap
 
 We want the best of everything!
 
-We want a ruby monk (and also JS monk!) style markdown interspersed with cool rspec driven examples and challenges.
+We want a ruby monk (and also JS and Scala monk!) style markdown interspersed with cool rspec driven examples and challenges.
 
 Ruby Monk style assessments/problems will need to have markdown that preceeds and follows the assessment.  
 
