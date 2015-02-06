@@ -25,6 +25,13 @@ Ruby Monk style assessments/problems will need to have markdown that preceeds an
 
 **Lets figure what what that is going to look like**
 
+Following the Ruby Monk model we have a Section called "Introduction To Ruby Objects" that consists of 3 pages 
+
+[check it out for yourself](https://rubymonk.com/learning/books/1-ruby-primer)
+
+I am feeling that 
+
+
 Assessment
   integer: library_id
   string: name
@@ -33,6 +40,9 @@ Marks
   integer :library_id
   string :name
   text :src
+
+Challenge
+  integer :library_id
 
 
 
