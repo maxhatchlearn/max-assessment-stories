@@ -89,7 +89,7 @@ That was straight forward; now it gets kind of tricky.  It seems that the assess
       integer :library_id
       string :language
       boolean :example                **if false then start != solution
-      text :
+      text :src
       test :solution
       text :spec
 
