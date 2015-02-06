@@ -39,6 +39,7 @@ I am feeling that the Path is named Ruby Primer, with a list of authors, and a d
       integer :library_id
       string :name
       string :description
+      string :skill_level             ** beginner, intermediate, expert
 
     LearningPathUsers
       integer :user_id
@@ -68,8 +69,18 @@ Then we have modules like "Introduction To Ruby Objects", "Introduction to Strin
       integer :library_id
       string :name
 
+    Marks
+      integer :library_id
+      string :name
+      text :src
 
-That was straight forward; now it gets kind of tricky.  It seems that the assessment parts will have to be grouped into sections.  (Note generally I dont give my join tables library_ids)
+    Videos
+      integer :library_id
+      string :name
+      text :url
+
+
+That was straight forward; now it gets kind of tricky.  It seems that the assessment parts will have to be grouped into sections.  (Note generally I dont give my join tables library_ids, I have decided to only give my Paths, modules, videos, marks, assessments library_ids)
 
     Sections
       integer :assessment_id
@@ -82,11 +93,9 @@ That was straight forward; now it gets kind of tricky.  It seems that the assess
       integer :index
 
     SectionMarks
-      integer :library_id
       text :src
 
     Challenges
-      integer :library_id
       string :language
       boolean :example                **if true then src = solution and solution null
       text :src
@@ -94,11 +103,30 @@ That was straight forward; now it gets kind of tricky.  It seems that the assess
       text :spec
 
 
+We will need answer models and if all the answers for assessment problems that aren't example are answered then an assessment gets a checkmark.  And of course we will save the problem answers
+
+    ChallengeAnswers
+      t.integer :coding_problem_id
+      t.integer :user_id
+      t.text :src
+      t.boolean :success
+
+
+
+
+
+
 
 
 But then we might want to go to a live terminal session or jsfiddle type demo.
 
-The all in one page thinkster style will quickly break down
+The all in one page thinkster style will quickly break down.
+
+Live terminal session should be all in one page with a next button.
+
+js fiddle type demo should be surrounded with markdown in an assessment section, but really isn't an assessment per say, so the definition of assessment is kind of breaking down.
+
+Question: can I grade a css/html/javascript thing?
 
 
 
@@ -137,6 +165,8 @@ This will most likely be accomplished with the following Schema
 
   - Thats good in someways, just leave versioning to local gits
 
+
+- assessment spec for a spec, download project and complete the spec spec, then upload and well test your app
 
 
 
