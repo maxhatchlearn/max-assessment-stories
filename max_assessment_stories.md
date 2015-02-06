@@ -13,14 +13,24 @@ For Example, I need to inject and eval user submitted javascript into the templa
 
 The super cool assessments can either be built on nest or be a separate rails app that connects to the database.
 
+### Overall Assessment structure
+
+Really the assessments will need to have markdown that preceeds and follows the assessment.  
+
+![](ruby_monk01.png)
+
+
 ### Individual assessment/interactive demo stories
 
-- standard problem types, multiple choice, checkbox (check all that apply), text input (write an essay)
+- standard problem types, multiple choice, checkbox (check all that apply), text input (write an essay, or answer a math question, etc)
 
 - js fiddle (my clone javascriptsandbox) html/css/javascript demos, code eval’d in client browser in iframe 
 
-
 - interactive terminal session, like code academy or dataquest.io
+
+- Project zips you download that are almost finished projects, that are too complicated to do in browser (full on rails app with sqlite db, or multi file javascript app), you finish the specs and upload it and we rerun the specs and record your score.  Within this topic there will be practice assessments and full on timed assessments.
+
+- simple coding exercises/ challenges.  This can be 
 
 
 - assessment engine module, sdk, open source ruby gem that other people can bring into their app that will make assessments come to life, and down the road send back analytics to us
