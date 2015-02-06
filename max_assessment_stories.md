@@ -74,12 +74,12 @@ That was straight forward; now it gets kind of tricky.  It seems that the assess
     Sections
       integer :assessment_id
       integer :index
+      string :name
 
     SectionAssets
       integer :section_id
       references :section_asset, polymorphic: true
       integer :index
-      string :name
 
     SectionMarks
       integer :library_id
