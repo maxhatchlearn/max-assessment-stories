@@ -21,6 +21,8 @@ We want a ruby monk (and also JS monk!) style markdown interspersed with cool rs
 
 Ruby Monk style assessments/problems will need to have markdown that preceeds and follows the assessment.  
 
+At this point I am assuming that the assessment will be json based, and refer to the markdown files in a folder or same folder.
+
 ![](ruby_monk01.png)
 
 **Lets figure what what that is going to look like**
@@ -31,20 +33,26 @@ Following the Ruby Monk model we have a Section called "Introduction To Ruby Obj
 
 ![](ruby_monk02.png)
 
-I am feeling that 
+I am feeling that the Path is named Ruby Primer, with a list of authors, and a description
+
+    LearningPaths
+      integer :library_id
+      string :name
+      string :description
 
 
-Assessment
-  integer: library_id
-  string: name
 
-Marks
-  integer :library_id
-  string :name
-  text :src
+    Assessment
+      integer: library_id
+      string: name
 
-Challenge
-  integer :library_id
+    Marks
+      integer :library_id
+      string :name
+      text :src
+
+    Challenge
+      integer :library_id
 
 
 
