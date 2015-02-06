@@ -40,6 +40,11 @@ I am feeling that the Path is named Ruby Primer, with a list of authors, and a d
       string :name
       string :description
 
+    LearningPathUsers
+      integer :user_id
+      integer :learning_path_id
+      integer :index
+
 Then we have modules like "Introduction To Ruby Objects", "Introduction to Strings", that only have names.  (Note: in my versioning schema, modules must be connected to paths by a join table because the same version of module might belong to many versions of a path)
 
     LearningPathLearningModules
