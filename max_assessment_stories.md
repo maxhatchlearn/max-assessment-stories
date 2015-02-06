@@ -79,16 +79,16 @@ That was straight forward; now it gets kind of tricky.  It seems that the assess
       integer :section_id
       references :section_asset, polymorphic: true
       integer :index
-
-    Marks
-      integer :library_id
       string :name
+
+    SectionMarks
+      integer :library_id
       text :src
 
     Challenges
       integer :library_id
       string :language
-      boolean :example                **if false then start != solution
+      boolean :example                **if true then src = solution and solution null
       text :src
       test :solution
       text :spec
@@ -126,7 +126,6 @@ This will most likely be accomplished with the following Schema
 
 
 
-- Need to figure 
 
 - possibility: edx style write your own javascript to make a problem
 
