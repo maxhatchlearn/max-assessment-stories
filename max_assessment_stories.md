@@ -15,16 +15,18 @@ The super cool assessments can either be built on nest or be a separate rails ap
 
 ### Individual assessment/interactive demo stories
 
+- standard problem types, multiple choice, checkbox (check all that apply), text input (write an essay)
+
 - js fiddle (my clone javascriptsandbox) html/css/javascript demos, code eval’d in client browser in iframe 
 
 
 - interactive terminal session, like code academy or dataquest.io
 
 
-- assessment engine module, ruby gem, sdk
+- assessment engine module, sdk, open source ruby gem that other people can bring into their app that will make assessments come to life, and down the road send back analytics to us
 
 
-- standard problem types, multiple choice, checkbox (check all that apply), text input (write an essay)
+
 
 
 - possibility: edx style write your own javascript to make a problem
