@@ -59,13 +59,16 @@ Then we have modules like "Introduction To Ruby Objects", "Introduction to Strin
 
 "Introduction to Objects", "More Objects and Methods" are each names of Assessments in the "Introduction To Ruby Objects" module.
 
-That was straight forward now it gets kind of tricky.
-
-
-
     Assessment
       integer: library_id
       string: name
+
+
+That was straight forward now it gets kind of tricky.  It seems that the assessment will have to be grouped into sections.
+
+
+
+
 
     Marks
       integer :library_id
