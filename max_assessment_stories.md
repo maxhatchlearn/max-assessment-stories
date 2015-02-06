@@ -21,7 +21,7 @@ We want a ruby monk (and also JS monk!) style markdown interspersed with cool rs
 
 Ruby Monk style assessments/problems will need to have markdown that preceeds and follows the assessment.  
 
-At this point I am assuming that the assessment will be json based, and refer to the markdown files in a folder or same folder.
+At this point I am assuming that the assessment will be json based, and refer to the markdown, ruby, javascript files in a folder or same folder.
 
 ![](ruby_monk01.png)
 
