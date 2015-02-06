@@ -124,10 +124,11 @@ The all in one page thinkster style will quickly break down.
 
 Live terminal session should be all in one page with a next button.
 
-js fiddle type demo should be surrounded with markdown in an assessment section, but really isn't an assessment per say, so the definition of assessment is kind of breaking down.
+js fiddle type demo should be preceeded/surrounded with markdown in an assessment section, but really isn't an assessment per say, so the definition of assessment is kind of breaking down.
 
 Question: can I grade a css/html/javascript thing?
 
+I have to think more about how i want the flow of a js fiddle type demo to flow into a ruby monk style thing.  Also need css/paper prototypes for each page.
 
 
 
