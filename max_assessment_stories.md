@@ -15,9 +15,39 @@ The super cool assessments can either be built on nest or be a separate rails ap
 
 ### Overall Assessment structure
 
-Really the assessments will need to have markdown that preceeds and follows the assessment.  
+We want the best of everything!
+
+We want a ruby monk (and also JS monk!) style markdown interspersed with cool rspec driven examples and challenges.
+
+Ruby Monk style assessments/problems will need to have markdown that preceeds and follows the assessment.  
 
 ![](ruby_monk01.png)
+
+**Lets figure what what that is going to look like**
+
+Assessment
+  integer: library_id
+  string: name
+
+Marks
+  integer :library_id
+  string :name
+  text :src
+
+
+
+
+But then we might want to go to a live terminal session or jsfiddle type demo.
+
+The all in one page thinkster style will quickly break down
+
+
+
+
+
+This will most likely be accomplished with the following Schema
+
+
 
 
 ### Individual assessment/interactive demo stories
