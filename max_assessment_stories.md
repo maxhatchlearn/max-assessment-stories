@@ -35,39 +35,10 @@ Following the Ruby Monk model we have a Section called "Introduction To Ruby Obj
 
 I am feeling that the Path is named Ruby Primer, with a list of authors, and a description
 
-    LearningPaths
-      integer :library_id
-      string :name
-      string :description
-      string :skill_level             ** beginner, intermediate, expert
-
-    LearningPathUsers
-      integer :user_id
-      integer :learning_path_id
-      integer :index
 
 Then we have modules like "Introduction To Ruby Objects", "Introduction to Strings", that only have names.  (Note: in my versioning schema, modules must be connected to paths by a join table because the same version of module might belong to many versions of a path, but to get these super cool assessments working, we really might just want to brute force version things using local git repos in hatchdown/json format)
 
-    LearningPathLearningModules
-      integer :learning_path_id
-      integer :learning_module_id
-      integer :index
-
-    LearningModules
-      integer :library_id
-      string :name
-
-    LearningModuleAssets
-      integer :learning_module_id
-      references :asset, polymorphic: true
-      integer :index
-
-
 "Introduction to Objects", "More Objects and Methods" are each names of Assessments in the "Introduction To Ruby Objects" module.
-
-    Assessment
-      integer :library_id
-      string :name
 
     Marks
       integer :library_id
@@ -115,16 +86,82 @@ We will need answer models and if all the answers for assessment problems that a
 
 
 ************
-**New Schema**
+**New Schema with join tables**
 
+LearningPaths
+  integer :library_id
+  string :name
+  string :description
+  string :skill_level             ** beginner, intermediate, expert
 
+LearningPathUsers
+  integer :user_id
+  integer :learning_path_id
+  integer :index
 
+LearningPathLearningModules
+  integer :learning_path_id
+  integer :learning_module_id
 
+LearningModules
+  integer :library_id
+  string :name
+  integer :index
 
+Pages
+  integer :library_id
+  string :name
+  integer :index
 
+Sections
+  integer :page_id
+  string :name
+  integer :index
+
+---too many join tables
 
 
 ***************
+**New schema without join tables**
+
+
+LearningPaths
+  integer :library_id
+  string :name
+  string :description
+  string :skill_level             ** beginner, intermediate, expert
+
+LearningPathUsers
+  integer :user_id
+  integer :learning_path_id
+  integer :index
+
+LearningModules
+  integer :learning_path_id
+  integer :library_id
+  string :name
+  integer :index
+
+Pages
+  integer :learning_module_id
+  integer :library_id
+  string :name
+  integer :index
+
+Sections
+  integer :page_id
+  string :name
+  integer :index
+
+
+
+
+
+
+
+
+
+****************
 
 
 But then we might want to go to a live terminal session or jsfiddle type demo.
