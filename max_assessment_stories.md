@@ -42,115 +42,99 @@ Then we have modules like "Introduction To Ruby Objects", "Introduction to Strin
 
 "Introduction to Objects", "More Objects and Methods" are each names of Assessments in the "Introduction To Ruby Objects" module.
 
-    Marks
-      integer :library_id
-      string :name
-      text :src
-
-
-
-
 That was straight forward; now it gets kind of tricky.  It seems that the assessment parts will have to be grouped into sections.  (Note generally I dont give my join tables library_ids, I have decided to only give my Paths, modules, videos, marks, assessments library_ids)
 
 We will need answer models and if all the answers for assessment problems that aren't example are answered then an assessment gets a checkmark.  And of course we will save the problem answers
 
-
-
-
-
-
-
-
-
 ***************
 **New schema**
 
-Users
-  string :github_login
-  integer :github_id
-  string :session_token
-  string :github_access_token
+    Users
+      string :github_login
+      integer :github_id
+      string :session_token
+      string :github_access_token
 
-Libraries
-  integer :user_id
-  string :name
+    Libraries
+      integer :user_id
+      string :name
 
-LearningPaths                     **one picture is associated with learning path
-  integer :library_id
-  string :name
-  string :description
-  string :skill_level             ** beginner, intermediate, expert
+    LearningPaths                     **one picture is associated with learning path
+      integer :library_id
+      string :name
+      string :description
+      string :skill_level             ** beginner, intermediate, expert
 
-LearningPathUsers
-  integer :user_id
-  integer :learning_path_id
-  integer :index
+    LearningPathUsers
+      integer :user_id
+      integer :learning_path_id
+      integer :index
 
-LearningModules
-  integer :library_id
-  integer :learning_path_id
-  string :name
-  integer :index
+    LearningModules
+      integer :library_id
+      integer :learning_path_id
+      string :name
+      integer :index
 
-Pages
-  integer :learning_module_id
-  integer :library_id
-  string :name
-  integer :index
+    Pages
+      integer :learning_module_id
+      integer :library_id
+      string :name
+      integer :index
 
-Sections
-  integer :page_id
-  string :name
-  integer :index
+    Sections
+      integer :page_id
+      string :name
+      integer :index
 
-SectionAssets
-  integer :section_id
-  references :asset, polymorphic: true
-  integer :index
+    SectionAssets
+      integer :section_id
+      references :asset, polymorphic: true
+      integer :index
 
-Terminal
-  integer :page_id
-  string :name
-  text :markdown
-  text :instructions            ** in markdown
-  text :src
-  text :hint                    ** in markdown might be null
-  integer :index
+    Terminal
+      integer :page_id
+      string :name
+      text :markdown
+      text :instructions            ** in markdown
+      text :src
+      text :hint                    ** in markdown might be null
+      integer :index
 
-Fiddles
-  text :html
-  text :css
-  text :javascript
+    Fiddles
+      text :html
+      text :css
+      text :javascript
 
-Marks
-  text :src
+    Marks
+      text :src
 
-Videos
-  text :url
+    Videos
+      text :url
 
-Challenges
-  string :language
-  boolean :example                **if true then src = solution and solution null
-  text :src
-  test :solution
-  text :spec
+    Challenges
+      string :language
+      boolean :example                **if true then src = solution and solution null
+      text :src
+      text :solution
+      text :spec
 
-ChallengeAnswers
-  integer :challenge_id
-  integer :user_id
-  text :src
-  boolean :success
+    ChallengeAnswers
+      integer :challenge_id
+      integer :user_id
+      text :src
+      boolean :success
 
-SectionCompletes
-  integer :user_id
-  integer :section_id
-  boolean :complete
+    SectionCompletes
+      integer :user_id
+      integer :section_id
+      boolean :complete
 
-Project
-  string :name
-  string :language
-  text :spec
-  *** need to attach a zip file with paperclip
+    Project
+      string :name
+      string :language
+      text :spec
+      *** need to attach a zip file with paperclip
 
 
 
