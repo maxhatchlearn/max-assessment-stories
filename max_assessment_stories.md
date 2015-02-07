@@ -45,87 +45,35 @@ Then we have modules like "Introduction To Ruby Objects", "Introduction to Strin
       string :name
       text :src
 
-    Videos
-      integer :library_id
-      string :name
-      text :url
+
 
 
 That was straight forward; now it gets kind of tricky.  It seems that the assessment parts will have to be grouped into sections.  (Note generally I dont give my join tables library_ids, I have decided to only give my Paths, modules, videos, marks, assessments library_ids)
 
-    Sections
-      integer :assessment_id
-      integer :index
-      string :name
-
-    SectionAssets
-      integer :section_id
-      references :section_asset, polymorphic: true
-      integer :index
-
-    SectionMarks
-      text :src
-
-    Challenges
-      string :language
-      boolean :example                **if true then src = solution and solution null
-      text :src
-      test :solution
-      text :spec
-
-
 We will need answer models and if all the answers for assessment problems that aren't example are answered then an assessment gets a checkmark.  And of course we will save the problem answers
 
-    ChallengeAnswers
-      t.integer :coding_problem_id
-      t.integer :user_id
-      t.text :src
-      t.boolean :success
 
 
 
 
-************
-**New Schema with join tables**
 
-LearningPaths
-  integer :library_id
-  string :name
-  string :description
-  string :skill_level             ** beginner, intermediate, expert
 
-LearningPathUsers
-  integer :user_id
-  integer :learning_path_id
-  integer :index
-
-LearningPathLearningModules
-  integer :learning_path_id
-  integer :learning_module_id
-
-LearningModules
-  integer :library_id
-  string :name
-  integer :index
-
-Pages
-  integer :library_id
-  string :name
-  integer :index
-
-Sections
-  integer :page_id
-  string :name
-  integer :index
-
----too many join tables
 
 
 ***************
-**New schema without join tables**
+**New schema**
 
+Users
+  string :github_login
+  integer :github_id
+  string :session_token
+  string :github_access_token
 
-LearningPaths
+Libraries
+  integer :user_id
+  string :name
+
+LearningPaths                     **one picture is associated with learning path
   integer :library_id
   string :name
   string :description
@@ -137,8 +85,8 @@ LearningPathUsers
   integer :index
 
 LearningModules
-  integer :learning_path_id
   integer :library_id
+  integer :learning_path_id
   string :name
   integer :index
 
@@ -153,13 +101,56 @@ Sections
   string :name
   integer :index
 
+SectionAssets
+  integer :section_id
+  references :asset, polymorphic: true
+  integer :index
+
+Terminal
+  integer :page_id
+  string :name
+  text :markdown
+  text :instructions            ** in markdown
+  text :src
+  text :hint                    ** in markdown might be null
+  integer :index
+
+Fiddles
+  text :html
+  text :css
+  text :javascript
+
+Marks
+  text :src
+
+Videos
+  text :url
+
+Challenges
+  string :language
+  boolean :example                **if true then src = solution and solution null
+  text :src
+  test :solution
+  text :spec
+
+ChallengeAnswers
+  integer :challenge_id
+  integer :user_id
+  text :src
+  boolean :success
+
+SectionCompletes
+  integer :user_id
+  integer :section_id
+  boolean :complete
 
 
 
+** a section might have a name then markdown then challenge then markdown then a fiddle
 
+** a page might have a bunch of terminal sessions in it, in which case it will not actually be one page, but a next button will appear because the terminal session takes up the whole page
 
-
-
+** if a page only has video and marks then a "got it" button appears to create the sectioncomplete instance
 
 ****************
 
