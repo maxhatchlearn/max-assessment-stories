@@ -154,6 +154,20 @@ SectionCompletes
 
 ****************
 
+Versioning scheme is like koreis and hybrid of mine
+
+when you create a learning path there is always a commit join table (no longer polymorphic), that has the unpublished version
+
+
+
+[new unpublished learning path]
+
+[published learning path]----[Commit]---[unpublished learning path]
+
+
+
+*************
+
 
 But then we might want to go to a live terminal session or jsfiddle type demo.
 
