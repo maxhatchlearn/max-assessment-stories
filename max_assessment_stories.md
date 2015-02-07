@@ -5,13 +5,15 @@ Max’s Super Cool Assessment Stories Write Up
 
 ### Preface
 
-My understanding between the discussions between myself and Korei is that there will be a central rails app, in that app will be an assessment module that will hold as much of the code as possible to run our super cool customized assessment (not generate the assessments that will be builder).  90% of the App will be an ember app (possibly backbone or angular Ive defered out of that discussion) running on top that will handle the builder, cohort administration, marketplace (although there were talks of that being a separate drupal app).  There is no debate of the power of ember to run all that functionality.  The one rails database will hold everything (not considering optimization).
+Hold on to your seats, because there is no more assessment model!!!! But we do have Page and Section models!
 
-The assessments will seemlessly integrate into the app, although the user will have no idea that then have actually been taken to a pure rails or possibly backbone.js route when viewing the super cool assessments  (we will even do research into doing this is emberjs as well).  The reason rails is a prefered way to do the super cool assessments is because there is a lot of hacky techniques needed to get these assessments to happen. 
+My understanding between the discussions between myself and Korei is that there will be a central rails app, in that app will be an assessment module that will hold as much of the code as possible to run our super cool customized assessment (not generate the assessments that will be builder).  90% of the App will be an ember/angular/backbone app running on top that will handle the builder, cohort administration, marketplace (although there were talks of that being a separate drupal app).  The one rails database will hold everything (not considering optimization).
+
+The "assessments" (really the path view now) will seemlessly integrate into the app, although the user will have no idea that then have actually been taken to a pure rails or possibly backbone.js route when viewing the super cool assessments.  The reason rails is a prefered way to do the super cool assessments is because there is a lot of hacky techniques needed to get these assessments to happen. 
 
 For Example, I need to inject and eval user submitted javascript into the template on the client and run jasmine tests.  I have this running in rails no problem.  (Code academy evals user submmited javascript on the client this is the standard, doing a js sandbox on our rails backend would be impractical in terms of getting the code to work and expensive computationally).  We would have to change the default templating engine on ember to eval js code and it would just kill the whole beauty of an ember template, or make a complicated helper.
 
-The super cool assessments can either be built on nest or be a separate rails app that connects to the database.
+The super cool assessments can either be built onto the main rails app or be a separate rails app that connects to the database.
 
 ### Overall Assessment structure
 
@@ -144,9 +146,17 @@ SectionCompletes
   integer :section_id
   boolean :complete
 
+Project
+  string :name
+  string :language
+  text :spec
+  *** need to attach a zip file with paperclip
+
 
 
 ** a section might have a name then markdown then challenge then markdown then a fiddle
+
+** a section might have a name then markdown then a project
 
 ** a page might have a bunch of terminal sessions in it, in which case it will not actually be one page, but a next button will appear because the terminal session takes up the whole page
 
@@ -164,6 +174,12 @@ when you create a learning path there is always a commit join table (no longer p
 
 [published learning path]----[Commit]---[unpublished learning path]
 
+
+- Actually i don't like that versioning scheme
+
+I like everything to be versioned the way i had it with my original versioning scheme
+  Don't want to be sending out false notification that something you forced got 
+  that would require bringing back all joining to be done with join tables
 
 
 *************
